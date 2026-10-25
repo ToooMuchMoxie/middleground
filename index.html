@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="The Middle Ground — a dark sci-fi horror-fantasy saga of identity, memory, lineage, and power. A full-cast audio drama first. Hear it first, then see it, then it's everywhere." />
+    <link rel="icon" href="data:," />
+    <title>The Middle Ground — Official Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0a0908;
+        --bg-raise: #12100d;
+        --bg-card: #161310;
+        --ink: #ece5d8;
+        --ink-soft: #b8ae9c;
+        --ink-faint: #8a8172;
+        --bronze: #c19a4b;
+        --bronze-bright: #e3bc6d;
+        --bronze-deep: #7d5f27;
+        --line: rgba(193, 154, 75, 0.28);
+        --line-soft: rgba(236, 229, 216, 0.1);
+        --hero-shade: linear-gradient(180deg, rgba(6,5,4,0.62) 0%, rgba(6,5,4,0.38) 42%, rgba(10,9,8,0.94) 100%);
+        --shadow: 0 18px 50px rgba(0,0,0,0.55);
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          color-scheme: light;
+          --bg: #efe9dc;
+          --bg-raise: #e7dfcd;
+          --bg-card: #f6f1e6;
+          --ink: #221c12;
+          --ink-soft: #55482f;
+          --ink-faint: #7d6f52;
+          --bronze: #8a6420;
+          --bronze-bright: #a87c28;
+          --bronze-deep: #6d4e16;
+          --line: rgba(138, 100, 32, 0.4);
+          --line-soft: rgba(34, 28, 18, 0.14);
+          --hero-shade: linear-gradient(180deg, rgba(10,8,5,0.66) 0%, rgba(10,8,5,0.45) 42%, rgba(16,13,8,0.92) 100%);
+          --shadow: 0 18px 44px rgba(60, 44, 12, 0.28);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Spectral", Georgia, "Times New Roman", serif;
+        font-size: 18px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      img { max-width: 100%; display: block; }
+      a { color: var(--bronze-bright); }
+      .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        background: #060504;
+      }
+      .hero-bg {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        object-position: center 38%;
+      }
+      .hero-shade { position: absolute; inset: 0; background: var(--hero-shade); }
+      .hero-inner {
+        position: relative;
+        width: 100%;
+        padding: 120px 0 72px;
+        text-align: center;
+      }
+      .hero-kicker {
+        font-family: "Cinzel", serif;
+        font-size: 0.82rem;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+        color: var(--bronze-bright);
+        margin: 0 0 22px;
+      }
+      .hero h1 {
+        font-family: "Cinzel", serif;
+        font-weight: 700;
+        font-size: clamp(2.6rem, 9vw, 6.2rem);
+        line-height: 1.04;
+        letter-spacing: 0.06em;
+        margin: 0 0 26px;
+        color: #f4ecd9;
+        text-shadow: 0 4px 34px rgba(0,0,0,0.8);
+      }
+      .hero h1 .rule {
+        display: block;
+        width: min(340px, 60vw);
+        height: 2px;
+        margin: 26px auto 0;
+        background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+      }
+      .hero-pitch {
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: clamp(1.08rem, 2.4vw, 1.35rem);
+        font-weight: 300;
+        color: #e8e0cd;
+        text-shadow: 0 2px 16px rgba(0,0,0,0.85);
+      }
+      .hero-pitch strong { font-weight: 600; color: #fff; }
+      .hero-signature {
+        margin: 30px 0 0;
+        font-style: italic;
+        font-size: 1.12rem;
+        color: var(--bronze-bright);
+      }
+      .hero-ctas {
+        margin-top: 38px;
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        font-family: "Cinzel", serif;
+        font-size: 0.86rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 15px 30px;
+        border: 1px solid var(--bronze);
+        transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      }
+      .btn-solid { background: var(--bronze); color: #161006; font-weight: 700; }
+      .btn-solid:hover { background: var(--bronze-bright); }
+      .btn-ghost { background: rgba(8,6,4,0.35); color: #f0e6cf; }
+      .btn-ghost:hover { background: rgba(193,154,75,0.22); }
+      .hero-scroll {
+        margin-top: 56px;
+        font-family: "Cinzel", serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: rgba(240,230,207,0.6);
+      }
+
+      /* ---------- Sections ---------- */
+      section { padding: 96px 0; }
+      section + section { border-top: 1px solid var(--line-soft); }
+      .sec-head { max-width: 760px; margin-bottom: 52px; }
+      .sec-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+      .sec-kicker {
+        font-family: "Cinzel", serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.38em;
+        text-transform: uppercase;
+        color: var(--bronze);
+        margin: 0 0 14px;
+      }
+      h2 {
+        font-family: "Cinzel", serif;
+        font-weight: 600;
+        font-size: clamp(1.9rem, 4.6vw, 3rem);
+        line-height: 1.15;
+        margin: 0 0 18px;
+      }
+      .sec-head p { color: var(--ink-soft); font-size: 1.08rem; margin: 0; }
+
+      /* Premise */
+      .premise-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        gap: 56px;
+        align-items: start;
+      }
+      .poster-frame {
+        border: 1px solid var(--line);
+        padding: 10px;
+        background: var(--bg-raise);
+        box-shadow: var(--shadow);
+      }
+      .poster-frame img { width: 100%; height: auto; }
+      .poster-cap {
+        text-align: center;
+        font-style: italic;
+        color: var(--ink-faint);
+        font-size: 0.95rem;
+        margin-top: 14px;
+      }
+      .premise-copy p { margin: 0 0 20px; font-size: 1.1rem; }
+      .premise-copy p:first-child { font-size: 1.28rem; line-height: 1.55; }
+      .premise-copy .drop::first-letter {
+        font-family: "Cinzel", serif;
+        font-size: 3.4em;
+        float: left;
+        line-height: 0.85;
+        padding: 6px 12px 0 0;
+        color: var(--bronze);
+      }
+      .rollout {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin-top: 44px;
+        border: 1px solid var(--line);
+      }
+      .rollout div { padding: 26px 24px; background: var(--bg-card); }
+      .rollout div + div { border-left: 1px solid var(--line); }
+      .rollout .step {
+        font-family: "Cinzel", serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--bronze);
+        margin: 0 0 8px;
+      }
+      .rollout h3 {
+        font-family: "Cinzel", serif;
+        font-size: 1.18rem;
+        margin: 0 0 8px;
+        font-weight: 600;
+      }
+      .rollout p { margin: 0; font-size: 0.98rem; color: var(--ink-soft); }
+
+      /* Recovered record */
+      .record-band { background: var(--bg-raise); }
+      .record-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        gap: 56px;
+        align-items: center;
+      }
+      .record-grid img {
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        width: 100%; height: auto;
+      }
+      blockquote.record-quote { margin: 0; }
+      .record-quote p {
+        font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+        font-style: italic;
+        line-height: 1.3;
+        margin: 0 0 20px;
+      }
+      .record-quote p .glow { color: var(--bronze-bright); }
+      .record-note { color: var(--ink-soft); margin: 0; }
+
+      /* Cast */
+      .cast-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+      }
+      .cast-card {
+        background: var(--bg-card);
+        border: 1px solid var(--line-soft);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .cast-card figure { margin: 0; position: relative; }
+      .cast-card figure button {
+        display: block; width: 100%; padding: 0; border: 0;
+        background: none; cursor: zoom-in;
+      }
+      .cast-card figure img { width: 100%; height: auto; transition: transform 0.5s ease; }
+      .cast-card figure button:hover img { transform: scale(1.02); }
+      .cast-card figcaption {
+        position: absolute; right: 12px; bottom: 12px;
+        font-family: "Cinzel", serif;
+        font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase;
+        color: #f0e6cf; background: rgba(8,6,4,0.72);
+        border: 1px solid var(--line);
+        padding: 6px 10px;
+        pointer-events: none;
+      }
+      .cast-body { padding: 26px 28px 30px; }
+      .cast-body h3 {
+        font-family: "Cinzel", serif;
+        font-size: 1.45rem;
+        font-weight: 600;
+        margin: 0 0 4px;
+      }
+      .cast-role {
+        font-family: "Cinzel", serif;
+        font-size: 0.74rem;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--bronze);
+        margin: 0 0 14px;
+      }
+      .cast-body p:last-child { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+
+      /* Act One */
+      .act-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .act-card { background: var(--bg-card); border: 1px solid var(--line-soft); overflow: hidden; }
+      .act-card img { width: 100%; height: auto; }
+      .act-body { padding: 24px 26px 28px; }
+      .act-body .act-date {
+        font-family: "Cinzel", serif;
+        font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase;
+        color: var(--bronze); margin: 0 0 8px;
+      }
+      .act-body h3 { font-family: "Cinzel", serif; font-size: 1.3rem; margin: 0 0 10px; font-weight: 600; }
+      .act-body p { margin: 0 0 18px; color: var(--ink-soft); font-size: 0.99rem; }
+      .act-link {
+        font-family: "Cinzel", serif;
+        font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+        text-decoration: none;
+        border-bottom: 1px solid var(--bronze);
+        padding-bottom: 3px;
+      }
+      .act-link:hover { color: var(--ink); border-color: var(--ink); }
+
+      /* Follow */
+      .follow-band { background: var(--bg-raise); text-align: center; }
+      .follow-band .sec-head { margin-bottom: 34px; }
+      .social-row {
+        display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+      }
+      .social-row a {
+        font-family: "Cinzel", serif;
+        font-size: 0.84rem; letter-spacing: 0.16em; text-transform: uppercase;
+        text-decoration: none;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        padding: 13px 22px;
+        transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+      }
+      .social-row a:hover { border-color: var(--bronze-bright); color: var(--bronze-bright); }
+      .social-row a span { color: var(--bronze); }
+      .follow-note { color: var(--ink-faint); font-style: italic; margin: 26px 0 0; }
+
+      footer {
+        padding: 44px 0 54px;
+        text-align: center;
+        color: var(--ink-faint);
+        font-size: 0.92rem;
+      }
+      footer .foot-title {
+        font-family: "Cinzel", serif;
+        letter-spacing: 0.3em; text-transform: uppercase;
+        color: var(--bronze);
+        font-size: 0.8rem; margin: 0 0 10px;
+      }
+      footer p { margin: 4px 0; }
+
+      /* Lightbox */
+      .lightbox {
+        position: fixed; inset: 0; z-index: 60;
+        background: rgba(4,3,2,0.94);
+        display: none;
+        align-items: center; justify-content: center;
+        padding: 24px;
+      }
+      .lightbox.open { display: flex; }
+      .lightbox img { max-width: min(1200px, 100%); max-height: 86vh; width: auto; height: auto; border: 1px solid var(--line); }
+      .lightbox-cap {
+        position: absolute; left: 50%; transform: translateX(-50%); bottom: 18px;
+        text-align: center; white-space: nowrap;
+        font-family: "Cinzel", serif;
+        letter-spacing: 0.24em; text-transform: uppercase;
+        font-size: 0.8rem; color: #e8dfc9;
+        background: rgba(4,3,2,0.88);
+        border: 1px solid var(--line);
+        padding: 9px 18px;
+      }
+      .lightbox-close {
+        position: absolute; top: 16px; right: 20px;
+        background: none; border: 1px solid var(--line);
+        color: #f0e6cf; font-family: "Cinzel", serif;
+        font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+        padding: 10px 16px; cursor: pointer;
+      }
+
+      @keyframes riseIn {
+        from { opacity: 0; transform: translateY(18px); }
+        to { opacity: 1; transform: none; }
+      }
+      .reveal { animation: riseIn 0.9s ease both; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .reveal { animation: none; }
+        .cast-card figure img { transition: none; }
+      }
+
+      @media (max-width: 900px) {
+        section { padding: 68px 0; }
+        .premise-grid, .record-grid { grid-template-columns: 1fr; gap: 40px; }
+        .poster-frame { max-width: 420px; margin: 0 auto; }
+        .cast-grid { grid-template-columns: 1fr; }
+        .act-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+        .rollout { grid-template-columns: 1fr; }
+        .rollout div + div { border-left: 0; border-top: 1px solid var(--line); }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============ HERO ============ -->
+    <header class="hero">
+      <img class="hero-bg" src="assets/hero-corridor.webp" alt="A dark corridor of doors receding into blackness, lit by a single red emergency light and a shattered mirror" />
+      <div class="hero-shade"></div>
+      <div class="hero-inner wrap">
+        <p class="hero-kicker">A dark sci-fi horror-fantasy saga</p>
+        <h1>The Middle<br />Ground<span class="rule"></span></h1>
+        <p class="hero-pitch">
+          The dead are judged in a city of obsidian and bronze — and one man's recovered memory
+          threatens both realms built on forgetting. A saga of <strong>identity, memory, lineage,
+          and power</strong>, in the lineage of <em>Game of Thrones</em>, <em>Dune</em>, and
+          <em>Heart of Darkness</em>.
+        </p>
+        <p class="hero-signature">It starts as sound — hear it first, then see it, then it's everywhere.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="#act-one">Hear Act One</a>
+          <a class="btn btn-ghost" href="#cast">Meet the Eight</a>
+        </div>
+        <p class="hero-scroll">Descend &#8595;</p>
+      </div>
+    </header>
+
+    <!-- ============ PREMISE ============ -->
+    <section id="premise">
+      <div class="wrap">
+        <div class="premise-grid">
+          <div class="reveal">
+            <div class="poster-frame">
+              <img src="assets/key-art-poster.webp" alt="Key art for The Middle Ground: a house split between darkness and firelight beneath a glowing heartbeat line, two figures standing before it" width="1280" height="1920" />
+            </div>
+            <p class="poster-cap">Official key art</p>
+          </div>
+          <div class="premise-copy reveal">
+            <div class="sec-head" style="margin-bottom:28px">
+              <p class="sec-kicker">The Premise</p>
+              <h2>Two realms.<br />Both built on forgetting.</h2>
+            </div>
+            <p class="drop">Death is not the end of the story. It is the beginning of the judgment. Beyond it stand two realms — the Upper and the Lower — ancient orders of Houses, Watchers, and courts, held together by a covenant older than memory and by one shared agreement: some things are not to be remembered.</p>
+            <p>Then a man comes back. Marion Cole returned from his own brief death with time missing and his memory in fragments — fragments that do not belong to the life he knows. A trauma surgeon crosses over on an operating table and returns with a warning the world twists into something it is not. A detective starts finding people who should exist, and don't.</p>
+            <p>What was buried is surfacing. And there are powers in both realms who would bury it again — whatever it costs, and whoever it costs.</p>
+            <div class="rollout">
+              <div>
+                <p class="step">First</p>
+                <h3>Hear It</h3>
+                <p>A full-cast audio drama. Season One begins with Act One — out now in three parts.</p>
+              </div>
+              <div>
+                <p class="step">Then</p>
+                <h3>See It</h3>
+                <p>An animated series in dark anime style, built from the locked character designs.</p>
+              </div>
+              <div>
+                <p class="step">Then</p>
+                <h3>Everywhere</h3>
+                <p>The big screen. The saga is staged to grow — sound, series, cinema.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RECOVERED RECORD ============ -->
+    <section class="record-band" id="record">
+      <div class="wrap">
+        <div class="record-grid">
+          <div class="reveal">
+            <img src="assets/recovered-record.webp" alt="A charred, crumbling recovered record stamped 001, with the words 'I am Marion El. Remember me.' burning in orange script" width="1920" height="1280" />
+          </div>
+          <div class="reveal">
+            <p class="sec-kicker">Recovered Record 001</p>
+            <blockquote class="record-quote">
+              <p>&#8220;I am <span class="glow">Marion El</span>.<br />Remember me.&#8221;</p>
+            </blockquote>
+            <p class="record-note">Found in the record. Attributed to no living voice. Who wrote it, when, and what it means — the saga answers in its own time. This page will not spoil it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CAST ============ -->
+    <section id="cast">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="sec-kicker">The Main Eight</p>
+          <h2>Meet the Eight</h2>
+          <p>The locked cast of Season One — every design approved, every face canon. Open a sheet to see the full turnaround and expressions.</p>
+        </div>
+        <div class="cast-grid">
+          <article class="cast-card reveal">
+            <figure>
+              <button type="button" class="sheet-open" data-cap="Marion Cole — Locked Character Sheet">
+                <img src="assets/cast-marion-cole.jpg" alt="Locked character sheet for Marion Cole: turnaround views of a man in a wheelchair in a dark shirt, with five expression studies" width="1920" height="1280" />
+              </button>
+              <figcaption>View sheet</figcaption>
+            </figure>
+            <div class="cast-body">
+              <h3>Marion Cole</h3>
+              <p class="cast-role">The Returned &middot; Los Angeles</p>
+              <p>A man in his mid-forties who came back from his own brief death with time missing and his memory in pieces. With his wife Nancy, he is the emotional center of the saga. The question of who he was before is one this page leaves exactly where the story left it — open.</p>
+            </div>
+          </article>
+
+          <article class="cast-card reveal">
+            <figure>
+              <button type="button" class="sheet-open" data-cap="Nancy Cole — Locked Character Sheet">
+                <img src="assets/cast-nancy-cole.jpg" alt="Locked character sheet for Nancy Cole: full-length turnaround views with five expression studies" width="1920" height="1280" />
+              </button>
+              <figcaption>View sheet</figcaption>
+            </figure>
+            <div class="cast-body">
+              <h3>Nancy Cole</h3>
+              <p class="cast-role">Covenant by Choice</p>
+              <p>Marion's wife — practical, observant, grounded, and nobody's supporting role. She becomes an investigator of the hidden world in her own right, and her standing in it is hers alone: earned by choice, witness, and action — never borrowed from a bloodline.</p>
+            </div>
+          </article>
+
+          <article class="cast-card reveal">
+            <figure>
+              <button type="button" class="sheet-open" data-cap="William Ashcroft — Locked Character Sheet">
+                <img src="assets/cast-william-ashcroft.jpg" alt="Locked character sheet for William Ashcroft: turnaround views of a silver-haired surgeon in a suit, with five expression studies" width="1920" height="1280" />
+              </button>
+              <figcaption>View sheet</figcaption>
+            </figure>
+            <div class="cast-body">
+              <h3>William Ashcroft</h3>
+              <p class="cast-role">The Witness &middot; Cedars Memorial</p>
+              <p>A respected trauma surgeon whose heart stopped mid-operation. His team saved his patient while bringing him back — and in between, he arrived at Ash Harbor, in the Lower Realm. He returned a public witness, certain of what he saw. The world heard his warning, and twisted it.</p>
+            </div>
+          </article>
+
+          <article class="cast-card reveal">
+            <figure>
+              <button type="button" class="sheet-open" data-cap="Malcolm Reed — Locked Character Sheet">
+                <img src="assets/cast-malcolm-reed.jpg" alt="Locked character sheet for Malcolm Reed: turnaround views of a detective, hair fully dark, weathering in his face, with five expression studies" width="1920" height="1280" />
+              </button>
+              <figcaption>View sheet</figcaption>
+            </figure>
+            <div class="cast-body">
+              <h3>Malcolm Reed</h3>
+              <p class="cast-role">The Detective</p>
+              <p>An Earth-side detective who investigates people and relationships that should exist — but don't. Before anyone accepts a supernatural explanation, Malcolm proves the case can be worked with ordinary detective reasoning. Some absences, he learns, have authors.</p>
+            </div>
+          </article>
+
+          <article class="cast-card reveal">
+            <figure>
+              <button type="button" class="sheet-open" data-cap="Miriam — Locked Character Sheet">
+                <img src="assets/cast-miriam.jpg" alt="Locked character sheet for Miriam of the Watchers: turnaround views in silver-blue Watcher dress, with five expression studies" width="1920" height="1280" />
+              </button>
+              <figcaption>View sheet</figcaption>
+            </figure>
+            <div class="cast-body">
+              <h3>Miriam</h3>
+              <p class="cast-role">Senior Watcher &middot; Upper Realm</p>
+              <p>A senior Watcher of the Upper Realm, working from the Observatory of First Light — modeling possibilities, watching Earth, weighing the limits of intervention. Marion Cole is the variable her models cannot hold. She deals in possibility. Never prophecy.</p>
+            </div>
+          </article>
+
+          <article class="cast-card reveal">
+            <figure>
+              <button type="button" class="sheet-open" data-cap="Azrael — Locked Character Sheet">
+                <img src="assets/cast-azrael.jpg" alt="Locked character sheet for Azrael, Keeper of First Light: turnaround views with gold First Light embroidery and amber eyes, with five expression studies" width="1920" height="1280" />
+              </button>
+              <figcaption>View sheet</figcaption>
+            </figure>
+            <div class="cast-body">
+              <h3>Azrael</h3>
+              <p class="cast-role">Keeper of First Light &middot; Upper Realm</p>
+              <p>An ancient Upper Realm authority bound to the Observatory of First Light and the earliest surviving evidence about reality itself. His title is an office and a burden — not ownership of what he keeps, and not proof that even he knows the whole of it.</p>
+            </div>
+          </article>
+
+          <article class="cast-card reveal">
+            <figure>
+              <button type="button" class="sheet-open" data-cap="General Naomi Fortis — Locked Character Sheet">
+                <img src="assets/cast-naomi-fortis.jpg" alt="Locked character sheet for General Naomi Fortis: turnaround views in a white wrap with the crimson House Fortis castle shield, freckles in every panel, with five expression studies" width="1920" height="1280" />
+              </button>
+              <figcaption>View sheet</figcaption>
+            </figure>
+            <div class="cast-body">
+              <h3>Naomi Fortis</h3>
+              <p class="cast-role">General &middot; Lower Realm</p>
+              <p>A senior Lower Realm security figure — pragmatic, strategic, decisive, first to see the threats others minimize. She is the strongest argument for acting before certainty. Her danger is not cruelty; it is that real threats can make extraordinary restrictions feel permanently reasonable.</p>
+            </div>
+          </article>
+
+          <article class="cast-card reveal">
+            <figure>
+              <button type="button" class="sheet-open" data-cap="Lucifer — Locked Character Sheet">
+                <img src="assets/cast-lucifer.jpg" alt="Locked character sheet for Lucifer: turnaround views of a young, handsome prisoner in bronze cuffs, with five expression studies" width="1920" height="1280" />
+              </button>
+              <figcaption>View sheet</figcaption>
+            </figure>
+            <div class="cast-body">
+              <h3>Lucifer</h3>
+              <p class="cast-role">The Prisoner &middot; The First Dissent</p>
+              <p>An influential prisoner of the First Dissent — ancient, persuasive, and held in bronze. His body is confined; his ideas are not. He cannot override a free will, and he commands no realm. A prisoner. Never a king.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ACT ONE ============ -->
+    <section id="act-one" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="sec-kicker">Season One &middot; Episode One</p>
+          <h2>Act One — Out Now</h2>
+          <p>The audio drama opens here. Three parts, released October 14&ndash;16, 2026 — each one ends on a question.</p>
+        </div>
+        <div class="act-grid">
+          <article class="act-card reveal">
+            <img src="assets/act1-part1.jpg" alt="Act One Part One cover: The Middle Ground title card — Will William Ashcroft wake up?" width="1080" height="1920" />
+            <div class="act-body">
+              <p class="act-date">Wed &middot; Oct 14, 2026 &middot; 6 PM PT</p>
+              <h3>Part One</h3>
+              <p>A surgeon's heart stops on the table. A man who already died once starts remembering things that never happened to him. Will William Ashcroft wake up?</p>
+              <a class="act-link" href="https://www.youtube.com/channel/UC1x3On4GVnE4uKckLmcEL5Q" target="_blank" rel="noopener">Watch &amp; listen</a>
+            </div>
+          </article>
+          <article class="act-card reveal">
+            <img src="assets/act1-part2.jpg" alt="Act One Part Two cover: The Middle Ground title card in gold serif" width="1080" height="1920" />
+            <div class="act-body">
+              <p class="act-date">Thu &middot; Oct 15, 2026 &middot; 6 PM PT</p>
+              <h3>Part Two</h3>
+              <p>What William saw on the other side does not stay on the other side — and what it sets in motion reaches further than one hospital room.</p>
+              <a class="act-link" href="https://www.youtube.com/channel/UC1x3On4GVnE4uKckLmcEL5Q" target="_blank" rel="noopener">Watch &amp; listen</a>
+            </div>
+          </article>
+          <article class="act-card reveal">
+            <img src="assets/act1-part3.jpg" alt="Act One Part Three cover: The Middle Ground title card in gold serif" width="1080" height="1920" />
+            <div class="act-body">
+              <p class="act-date">Fri &middot; Oct 16, 2026 &middot; 6 PM PT</p>
+              <h3>Part Three</h3>
+              <p>Act One closes the way it opened — with something recovered that was never meant to surface. It ends on a question. It is supposed to.</p>
+              <a class="act-link" href="https://www.youtube.com/channel/UC1x3On4GVnE4uKckLmcEL5Q" target="_blank" rel="noopener">Watch &amp; listen</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOLLOW ============ -->
+    <section class="follow-band" id="follow">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="sec-kicker">Enter</p>
+          <h2>Follow the Saga</h2>
+          <p>New parts, character drops, and world-building — daily, across every platform.</p>
+        </div>
+        <div class="social-row reveal">
+          <a href="https://www.youtube.com/channel/UC1x3On4GVnE4uKckLmcEL5Q" target="_blank" rel="noopener">YouTube <span>&middot; Enter the Middle Ground</span></a>
+          <a href="https://www.instagram.com/enterthemiddleground" target="_blank" rel="noopener">Instagram <span>&middot; @enterthemiddleground</span></a>
+          <a href="https://www.facebook.com/profile.php?id=61594565776120" target="_blank" rel="noopener">Facebook <span>&middot; The Middle Ground</span></a>
+          <a href="https://www.tiktok.com/@enterthemiddlegro" target="_blank" rel="noopener">TikTok <span>&middot; @enterthemiddlegro</span></a>
+          <a href="https://x.com/Damiddleground" target="_blank" rel="noopener">X <span>&middot; @Damiddleground</span></a>
+          <a href="https://beacons.ai/tooomuchmoxie" target="_blank" rel="noopener">All Links <span>&middot; Beacons</span></a>
+        </div>
+        <p class="follow-note">Hear it first. Then see it. Then it's everywhere.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <p class="foot-title">The Middle Ground</p>
+        <p>Created by Marion Maxey &middot; A Tooo Much Moxie production</p>
+        <p>&copy; 2026 Tooo Much Moxie. All artwork on this page is original series art.</p>
+      </div>
+    </footer>
+
+    <!-- ============ LIGHTBOX ============ -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Character sheet viewer">
+      <button class="lightbox-close" id="lightboxClose" type="button">Close</button>
+      <img id="lightboxImg" alt="" />
+      <p class="lightbox-cap" id="lightboxCap"></p>
+    </div>
+
+    <script>
+      (function () {
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lightboxImg');
+        var lbCap = document.getElementById('lightboxCap');
+        var lastFocus = null;
+
+        function openSheet(btn) {
+          var img = btn.querySelector('img');
+          if (!img) return;
+          lastFocus = document.activeElement;
+          lbImg.src = img.getAttribute('src');
+          lbImg.alt = img.getAttribute('alt') || '';
+          lbCap.textContent = btn.getAttribute('data-cap') || '';
+          lb.classList.add('open');
+          document.body.style.overflow = 'hidden';
+          document.getElementById('lightboxClose').focus();
+        }
+        function closeSheet() {
+          lb.classList.remove('open');
+          lbImg.removeAttribute('src');
+          document.body.style.overflow = '';
+          if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+        var buttons = document.querySelectorAll('.sheet-open');
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener('click', function () { openSheet(this); });
+        }
+        document.getElementById('lightboxClose').addEventListener('click', closeSheet);
+        lb.addEventListener('click', function (e) { if (e.target === lb) closeSheet(); });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && lb.classList.contains('open')) closeSheet();
+        });
+      })();
+    </script>
+  </body>
+</html>
